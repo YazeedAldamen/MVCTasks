@@ -16,7 +16,7 @@ namespace task_31_jan.Controllers
         }
 
         public string Name() {
-        //RedirectToRoute("index");
+
         return "My Name is Yazeed";
         }
 
