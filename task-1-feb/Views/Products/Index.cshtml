@@ -9,19 +9,27 @@
 <p>
     @Html.ActionLink("Create New", "Create")
 </p>
-<table class="table table-bordered table-hover table-responsive">
+<table class="table  table-hover table-responsive">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.ProductName)
+            @*@Html.DisplayNameFor(model => model.ProductName)*@
+            <span>Product</span>
+
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.UnitPrice)
+            @*@Html.DisplayNameFor(model => model.UnitPrice)*@
+            <span>Unit Price</span>
+
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.UnitsInStock)
+            @*@Html.DisplayNameFor(model => model.UnitsInStock)*@
+            <span>Units In Stock</span>
+
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Category.CategoryName)
+            @*@Html.DisplayNameFor(model => model.Category.CategoryName)*@
+            <span>Category</span>
+
         </th>
         <th></th>
     </tr>
@@ -33,6 +41,7 @@
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.UnitPrice)
+
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.UnitsInStock)
