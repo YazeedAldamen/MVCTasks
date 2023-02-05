@@ -1,0 +1,126 @@
+﻿@model IEnumerable<task_3rd_feb.Models.Employee>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<div>
+    <form action="Search" method="post">
+        <div style=" width:70%;display:flex; justify-content:space-evenly">
+            <p>Search in: </p>
+            <div>
+                <input type="radio" id="First_Name" name="option" value="First_Name">
+                <label for="First_Name">First Name</label>
+            </div>
+
+            <div>
+                <input type="radio" id="Last_Name" name="option" value="Last_Name">
+                <label for="Last_Name">Last Name</label>
+            </div>
+
+            <div>
+                <input type="radio" id="Email" name="option" value="Email">
+                <label for="Email">Email</label>
+            </div>
+            
+
+            <div>
+                <input type="radio" id="Age" name="option" value="Age">
+                <label for="Age">Age</label>
+            </div>
+
+            
+        </div>
+
+        <div>
+            <Label>Search</Label>
+            @Html.TextBox("Search")
+            <input type="submit"
+                   value="Search" class="btn btn-warning" />
+        </div>
+
+    </form>
+</div>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.First_Name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Last_Name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Email)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Phone)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Age)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Job_Title)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Gender)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Images)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CV)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.First_Name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Last_Name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Email)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Phone)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Age)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Job_Title)
+        </td>
+        <td>
+            @if (item.Gender == true)
+            {
+                <span>Male</span>
+            }
+            else
+            {
+                <span>Female</span>}
+        </td>
+        <td>
+            @*@Html.DisplayFor(modelItem => item.Images)*@
+            <a download href="~/images/@item.Images"><img src="~/images/@item.Images" alt="Alternate Text" style="width:75px; height:50px" /></a>
+        </td>
+        <td>
+            @*@Html.DisplayFor(modelItem => item.CV)*@
+            <a download href="~/documents/@item.CV">@item.CV</a>
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |
+            @Html.ActionLink("Details", "Details", new { id=item.Id }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.Id })
+        </td>
+    </tr>
+}
+
+</table>

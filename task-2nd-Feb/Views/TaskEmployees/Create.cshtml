@@ -15,50 +15,64 @@
         <h4>TaskEmployee</h4>
         <hr />
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-        <div class="form-group">
-            @Html.LabelFor(model => model.First_Name, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.First_Name, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.First_Name, "", new { @class = "text-danger" })
-            </div>
+    <div class="form-group">
+        @*@Html.LabelFor(model => model.First_Name, htmlAttributes: new { @class = "control-label col-md-2" })*@
+        <label class="control-label col-md-2" for="First_Name">First Name</label>
+        <div class="col-md-10">
+            @*@Html.EditorFor(model => model.First_Name, new { htmlAttributes = new { @class = "form-control" } })*@
+            <input class="form-control text-box single-line" data-val="true" data-val-length="The field Last Name must be a string with a maximum length of 12." data-val-length-max="12" data-val-required="The First Name field is required." id="First_Name" name="First_Name" type="text" value="">
+            @*@Html.ValidationMessageFor(model => model.First_Name, "", new { @class = "text-danger" })*@
+            <span class="field-validation-valid text-danger" data-valmsg-for="First_Name" data-valmsg-replace="true"></span>
         </div>
+    </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.Last_Name, htmlAttributes: new { @class = "control-label col-md-2" })
+            @*@Html.LabelFor(model => model.Last_Name, htmlAttributes: new { @class = "control-label col-md-2" })*@
+            <label class="control-label col-md-2" for="Last_Name">Last Name</label>
             <div class="col-md-10">
-                @Html.EditorFor(model => model.Last_Name, new { htmlAttributes = new { @class = "form-control" } })
+                @*@Html.EditorFor(model => model.Last_Name, new { htmlAttributes = new { @class = "form-control" } })*@
+                <input class="form-control text-box single-line" data-val="true" data-val-length="The field Last Name must be a string with a maximum length of 12." data-val-length-max="12" data-val-required="The Last Name field is required." id="Last_Name" name="Last_Name" type="text" value="">
                 @Html.ValidationMessageFor(model => model.Last_Name, "", new { @class = "text-danger" })
             </div>
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.Email, htmlAttributes: new { @class = "control-label col-md-2" })
+            @*@Html.LabelFor(model => model.Email, htmlAttributes: new { @class = "control-label col-md-2" })*@
+            <label class="control-label col-md-2" for="Email">Email</label>
             <div class="col-md-10">
-                @Html.EditorFor(model => model.Email, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
+                @*@Html.EditorFor(model => model.Email, new { htmlAttributes = new { @class = "form-control" } })*@
+                <input class="form-control text-box single-line" data-val="true" data-val-email="The Email field is not a valid e-mail address." data-val-required="The Email field is required." id="Email" name="Email" type="email" value="">
+                @*@Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })*@
+                <span class="field-validation-valid text-danger" data-valmsg-for="Email" data-valmsg-replace="true"></span>
             </div>
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.Phone, htmlAttributes: new { @class = "control-label col-md-2" })
+            @*@Html.LabelFor(model => model.Phone, htmlAttributes: new { @class = "control-label col-md-2" })*@
+            <label class="control-label col-md-2" for="Phone">Phone</label>
             <div class="col-md-10">
-                @Html.EditorFor(model => model.Phone, new { htmlAttributes = new { @class = "form-control" } })
+                @*@Html.EditorFor(model => model.Phone, new { htmlAttributes = new { @class = "form-control" } })*@
+                <input class="form-control text-box single-line" data-val="true" data-val-regex="Enter A Valid Jordanian Phone Number" data-val-regex-pattern="((079)|(078)|(077)){1}[0-9]{7}" data-val-required="The Phone field is required." id="Phone" name="Phone" type="text" value="">
                 @Html.ValidationMessageFor(model => model.Phone, "", new { @class = "text-danger" })
             </div>
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.Age, htmlAttributes: new { @class = "control-label col-md-2" })
+            @*@Html.LabelFor(model => model.Age, htmlAttributes: new { @class = "control-label col-md-2" })*@
+            <label class="control-label col-md-2" for="Age">Age</label>
             <div class="col-md-10">
-                @Html.EditorFor(model => model.Age, new { htmlAttributes = new { @class = "form-control" } })
+                @*@Html.EditorFor(model => model.Age, new { htmlAttributes = new { @class = "form-control" } })*@
+                <input class="form-control text-box single-line" data-val="true" data-val-number="The field Age must be a number." data-val-range="The field Age must be between 18 and 50." data-val-range-max="50" data-val-range-min="18" data-val-required="The Age field is required." id="Age" name="Age" type="number" value="" min="18" max="50">
                 @Html.ValidationMessageFor(model => model.Age, "", new { @class = "text-danger" })
             </div>
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.Job_Title, htmlAttributes: new { @class = "control-label col-md-2" })
+            @*@Html.LabelFor(model => model.Job_Title, htmlAttributes: new { @class = "control-label col-md-2" })*@
+            <label class="control-label col-md-2" for="Job_Title">Job Title</label>
             <div class="col-md-10">
-                @Html.EditorFor(model => model.Job_Title, new { htmlAttributes = new { @class = "form-control" } })
+                @*@Html.EditorFor(model => model.Job_Title, new { htmlAttributes = new { @class = "form-control" } })*@
+                <input class="form-control text-box single-line" data-val="true" data-val-length="The field Job Title must be a string with a maximum length of 10." data-val-length-max="10" data-val-required="The Job Title field is required." id="Job_Title" name="Job_Title" type="text" value="">
                 @Html.ValidationMessageFor(model => model.Job_Title, "", new { @class = "text-danger" })
             </div>
         </div>
@@ -70,8 +84,9 @@
                     @*@Html.EditorFor(model => model.Gender)
         @Html.ValidationMessageFor(model => model.Gender, "", new { @class = "text-danger" })*@
 
-                    @Html.DropDownListFor(model => model.Gender, new[] { new SelectListItem { Text = "Male", Value = "true" }, new SelectListItem { Text = "Female", Value = "false" } }, "Select Gender")                   
+                    @Html.DropDownListFor(model => model.Gender, new[] { new SelectListItem { Text = "Male", Value = "true" }, new SelectListItem { Text = "Female", Value = "false" } }, "Select Gender", new { @class = "form-control" })                   
                     @Html.ValidationMessageFor(model => model.Gender, "", new { @class = "text-danger" })
+
                 </div>
             </div>
         </div>
