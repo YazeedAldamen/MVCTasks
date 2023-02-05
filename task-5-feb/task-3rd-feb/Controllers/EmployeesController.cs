@@ -120,8 +120,24 @@ namespace task_3rd_feb.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Id,First_Name,Last_Name,Email,Phone,Age,Job_Title,Gender,Images,CV")] Employee employee)
+        public ActionResult Edit([Bind(Include = "Id,First_Name,Last_Name,Email,Phone,Age,Job_Title,Gender,Images,CV")] Employee employee, HttpPostedFileBase Images, HttpPostedFileBase CV)
         {
+            if (Images != null)
+            {
+                string _FileName = Path.GetFileName(Images.FileName);
+                string _path = Path.Combine(Server.MapPath("~/images"), _FileName);
+                Images.SaveAs(_path);
+                employee.Images = _FileName;
+
+            }
+
+            if (CV != null)
+            {
+                string _FileName = Path.GetFileName(CV.FileName);
+                string _path = Path.Combine(Server.MapPath("~/documents"), _FileName);
+                CV.SaveAs(_path);
+                employee.CV = _FileName;
+            }
             if (ModelState.IsValid)
             {
                 db.Entry(employee).State = EntityState.Modified;
