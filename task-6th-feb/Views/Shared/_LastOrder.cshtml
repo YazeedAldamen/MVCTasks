@@ -5,6 +5,15 @@
     <table class="dl-horizontal">
         <tr>
             <td>
+                Customer:
+            </td>
+
+            <td>
+                @Model.Customer.FirstName            
+            </td>
+        </tr>
+        <tr>
+            <td>
                 Order ID:
             </td>
 
@@ -12,17 +21,14 @@
                 @Model.OrderID
             </td>
         </tr>
-        <td>
-           Order Date: 
-        </td>
+        <tr>
+            <td>
+                Order Date:
+            </td>
 
-        <td>
-            @Model.OrderDate
-        </td>
-
+            <td>
+                @Model.OrderDate
+            </td>
+        </tr>
     </table>
 </div>
-<p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.OrderID }) |
-    @Html.ActionLink("Back to List", "Index")
-</p>

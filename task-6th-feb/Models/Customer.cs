@@ -11,7 +11,8 @@ namespace task_6th_feb.Models
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel.DataAnnotations;
+
     public partial class Customer
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
@@ -19,17 +20,28 @@ namespace task_6th_feb.Models
         {
             this.Orders = new HashSet<Order>();
         }
-    
+        [Display(Name = "ID")]
         public int CustomerID { get; set; }
+        [Display(Name = "First Name")]
+
         public string FirstName { get; set; }
+        [Display(Name = "Last Name")]
+
         public string LastName { get; set; }
+        [Display(Name = "E-mail")]
+        [EmailAddress]
         public string Email { get; set; }
+
         public Nullable<decimal> Phone { get; set; }
         public Nullable<int> Age { get; set; }
+        [Display(Name = "Job Title")]
+
         public string JobTItle { get; set; }
         public Nullable<bool> Gender { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Order> Orders { get; set; }
+
+        
     }
 }
