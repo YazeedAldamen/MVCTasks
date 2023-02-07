@@ -21,7 +21,7 @@ namespace task_6th_feb.Controllers
         }
         public PartialViewResult LastOrder()
         {
-            var lastOrder = db.Orders.OrderByDescending(o => o.OrderID).FirstOrDefault();
+            var lastOrder = db.Orders.OrderByDescending(o => o.OrderDate).FirstOrDefault();
             return PartialView("_LastOrder", lastOrder);
         }
         // GET: Customers/Details/5
