@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Facility">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Facility1" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Majors" Relationship="Self.FK_Majors_Facilities" FromRole="Facilities" ToRole="Majors" />
+  </EntityType>
+  <EntityType Name="Major">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Major1" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="FacilityID" Type="Int32" />
+    <NavigationProperty Name="Facility" Relationship="Self.FK_Majors_Facilities" FromRole="Majors" ToRole="Facilities" />
+  </EntityType>
+  <Association Name="FK_Majors_Facilities">
+    <End Role="Facilities" Type="Self.Facility" Multiplicity="0..1" />
+    <End Role="Majors" Type="Self.Major" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Facilities">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Majors">
+        <PropertyRef Name="FacilityID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="Entities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Facilities" EntityType="Self.Facility" />
+    <EntitySet Name="Majors" EntityType="Self.Major" />
+    <AssociationSet Name="FK_Majors_Facilities" Association="Self.FK_Majors_Facilities">
+      <End Role="Facilities" EntitySet="Facilities" />
+      <End Role="Majors" EntitySet="Majors" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

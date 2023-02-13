@@ -1,0 +1,41 @@
+﻿@model task_13th_feb.Models.Facility
+
+@{
+    ViewBag.Title = "show";
+}
+
+<h2>show</h2>
+
+
+<div id="div1"></div>
+<script>
+    async function read() {
+        try {
+            const api = "https://localhost:44352/api/Facilities";
+            const res = await fetch(api);
+            const data = await res.json();
+
+            console.log(data);
+            readdata(data);
+        } catch (error) {
+            console.log(error);
+        }
+    }
+    function readdata(data) {
+        for (let i = 0; i < data.length; i++) {
+
+
+            document.getElementById('div1').innerHTML += `<a href="https://localhost:44352/Majors/Index/${data[i].Id}"><h1>${data[i].Facility1}</h1></a>`;
+
+
+        }
+    }
+    read();
+
+    //fetch('https://localhost:44352/api/Facilities')
+    //    .then(response => response.json())
+    //    .then(data => {
+    //        console.log(data);
+    //        data.forEach(one => document.getElementById("div1").innerHTML += `<a href="${}"><h2>${one.Facility1}</h2></a>`)
+    //    });
+</script>
